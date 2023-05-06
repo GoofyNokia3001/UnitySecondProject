@@ -9,5 +9,15 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("CharacterCustom");
         Debug.Log("CharacterCustom");
     }
+	public void Settings()
+	{
+		SceneManager.LoadScene("Settings");
+		Debug.Log("Settings");
+	}
+	public void MainMenu()
+	{
+		SceneManager.LoadScene("MainMenu");
+		Debug.Log("MainMenu");
+	}
    
 }
