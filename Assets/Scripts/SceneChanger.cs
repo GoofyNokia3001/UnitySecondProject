@@ -7,17 +7,22 @@ public class SceneChanger : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene("CharacterCustom");
-        Debug.Log("CharacterCustom");
+       
     }
 	public void Settings()
 	{
 		SceneManager.LoadScene("Settings");
-		Debug.Log("Settings");
+	
 	}
 	public void MainMenu()
 	{
 		SceneManager.LoadScene("MainMenu");
-		Debug.Log("MainMenu");
+
+	}
+	public void End()
+	{
+		SceneManager.LoadScene("GameOver");
+
 	}
    
 }
