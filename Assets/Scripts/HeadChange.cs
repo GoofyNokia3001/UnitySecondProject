@@ -6,14 +6,28 @@ using UnityEngine.UI;
 public class HeadChange : MonoBehaviour {
 	public Image startingImage;
 	public Image HeadImage;
-	public Sprite[] sprites;
+	public Sprite[] Hats;
+	public Sprite[] Helmets;
+	private Sprite[] spriteArray;
+	public Toggle HelmetOn;
 
 	private int imageNumber = 0;
 
+	private void Start() {
+		if (HelmetOn.isOn) {
+			spriteArray = Helmets;
+			HeadImage.enabled = false;
+		} else {
+			spriteArray = Hats;
+			HeadImage.enabled = true;
+		}
+	}
+
 	public void NextButtonClicked()
-	{HeadImage.enabled = false;
+	{
+		HeadImage.enabled = false;
 		imageNumber++;
-		if (imageNumber >= sprites.Length)
+		if (imageNumber >= spriteArray.Length)
 		{
 			imageNumber = 0;
 		}
@@ -21,20 +35,25 @@ public class HeadChange : MonoBehaviour {
 	}
 
 	public void PrevButtonClicked()
-	{HeadImage.enabled = false;
+	{
+		HeadImage.enabled = false;
 		imageNumber--;
 		if (imageNumber < 0)
 		{
-			imageNumber = sprites.Length - 1;
+			imageNumber = spriteArray.Length - 1;
 		}
 		UpdateImage();
 	}
 
-	private void UpdateImage()
-	{if (imageNumber >= 7) {
+	public void UpdateImage()
+	{
+		if (HelmetOn.isOn) {
+			spriteArray = Helmets;
+			HeadImage.enabled = false;
+		} else {
+			spriteArray = Hats;
 			HeadImage.enabled = true;
-	} else {HeadImage.enabled = false;
 		}
-		startingImage.sprite = sprites[imageNumber];
+		startingImage.sprite = spriteArray[imageNumber];
 	}
 }

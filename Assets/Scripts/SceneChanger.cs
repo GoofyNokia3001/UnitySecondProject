@@ -3,12 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
-{
-    public void Play()
+{ 
+	public void Create()
+	{
+		SceneManager.LoadScene("CharacterChanger");
+
+	}
+    public void PlayK()
     {
-        SceneManager.LoadScene("CharacterCustom");
+        SceneManager.LoadScene("CharacterCustomK");
        
     }
+	public void PlayD()
+	{
+		SceneManager.LoadScene("CharacterCustomD");
+
+	}
 	public void Settings()
 	{
 		SceneManager.LoadScene("Settings");
